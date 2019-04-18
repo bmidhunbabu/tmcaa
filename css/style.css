@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Cookie|Dosis|Lato|Lobster|Montserrat|Open+Sans|Oswald|Philosopher|Raleway|Roboto|Ubuntu|Questrial');
+
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Anton', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Philosopher', sans-serif;
+font-family: 'Cookie', cursive; 
+font-family: 'Questrial', sans-serif;
+*/
+
+::selection {
+    background-color: #001331;
+    color: #fff;
+}
+
+::-moz-selection {
+    background-color: #001331;
+    color: #fff;
+}
+
+::-webkit-selection {
+    background-color: #001331;
+    color: #fff;
+}
+
+body.login {
+    background-color: #001331;
+}
+
+#content-header {
+
+}
+
+#content-header .heading {
+    font-family: 'Philosopher', sans-serif;
+    font-weight: bold;
+    color: #001331;
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(18,30,49,0.4);
+}
+
+.content-body {
+    padding-top:30px;
+}
+
+.control-label {
+    color: #001331;
+    font-weight: 500;
+    font-family: 'Questrial', sans-serif;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.alert {
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 0px;
+    border: none;
+    -webkit-box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 7px 2px rgba(0,0,0,0.2);
+}
+
+.alert-danger {
+    background-color: #f44336;
+}
+
+.alert-success {
+    background-color: #4caf50;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+input[type="text"].form-control:focus,
+input[type="date"].form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: 1px solid #001331;
+}
+
+textarea.form-control {
+    height:150px;
+}
+
+.btn {
+    background-color: #001331;
+    color: #B2CCFF;
+    color: #fff;
+    font-family: 'Philosopher', sans-serif;
+    font-weight: 500;
+    border-radius: 0px;
+}
+
+.form-container {
+    background-color: #FFF;
+    padding: 70px 30px;
+    width: 400px;
+    max-width: calc(100% - 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-box-shadow: 3px 3px 7px 3px rgba(0,0,0,0.6);
+    box-shadow: 3px 3px 7px 3px rgba(0,0,0,0.6);
+}
+
+.form-heading {
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Lobster', cursive; 
+    font-size: 32px;
+    font-weight: bold;
+    color: #001331;
+}
+
+.form-login input[type="text"],
+.form-login input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #001331;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.form-login input[type="text"]:focus,
+.form-login input[type="password"]:focus {
+    border: none;
+    border-bottom: 1px solid #001331;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.table td, 
+.table th {
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.info-box {
+    /* border: 1px solid #dee2e6; */
+    color: #fff;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.info-box::after {
+    content: '';
+    display: block;
+    height: 0px;
+    clear: both;
+}
+
+.info-box > .info-box-icon {
+    float: left;
+    padding: 10px;
+}
+
+.info-box > .info-box-icon > .info-icon {
+    font-size: 40px;
+}
+
+.info-box .info-box-content {
+    float: left;
+    padding: 10px;
+}
+
+.info-box .info-box-content a {
+    color: #fff;
+    padding: 5px 15px;
+    font-weight: bold;
+    border: 2px solid #fff;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.info-title {
+    font-family: 'Philosopher', sans-serif;
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+    line-height: 1em;
+}
+
+.bg-green {
+    background-color: #2e7d32;
+}
+
+.bg-amber {
+    background-color: #ffc107;
+}
+
+.bg-orange {
+    background-color: #ff9800;
+}
+
+.bg-deep-orange {
+    background-color: #ff5722;
+}
