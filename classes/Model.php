@@ -109,6 +109,7 @@ class Model
         global $mysqli;
         $id = $this->attributes['id'];
         $sql = "select p.* from $foreign_table f inner join $primary_table p on f.$foreign_key = p.$primary_key where f.id = '$id'";
+        // echo $sql;
         $result = $mysqli->query($sql);
         if ($result->num_rows) {
             $row = $result->fetch_assoc();

@@ -39,7 +39,7 @@ User::is_admin() or die('Unauthorized Access');
                                 if (preg_match('/[^a-zA-Z\s]/', $_POST['name'])) {
                                     alert('Course Name cannot contain numbers and special characters', 'danger');
                                 } else if (preg_match('/[^a-zA-Z\s]/', $_POST['type'])) {
-                                    alert('Course Name cannot contain numbers and special characters', 'danger');
+                                    alert('Course Type cannot contain numbers and special characters', 'danger');
                                 } else if (Course::exists('name', $_POST['name'])) {
                                     alert("Course " . $_POST['name'] . " already exists", 'danger');
                                 } else {

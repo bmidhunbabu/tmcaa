@@ -83,6 +83,7 @@ body.login {
 
 input[type="text"].form-control:focus,
 input[type="date"].form-control:focus,
+input[type="number"].form-control:focus,
 select.form-control:focus,
 textarea.form-control:focus {
     box-shadow: none;
