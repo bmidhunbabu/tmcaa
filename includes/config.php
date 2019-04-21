@@ -7,6 +7,7 @@ define('DB_NAME', "tmcaa");
 
 define('SITE_URL', "http://localhost/projects/tmcaa");
 define('SITE_TITLE', "TMCAA");
+define('APP_PATH', dirname(dirname(__FILE__)));
 
 $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 

@@ -27,4 +27,9 @@ class Exam extends Model
     {
         return $this->belongsTo('exams', 'course_id', 'courses', 'id', 'Course');
     }
+
+    public function questions()
+    {
+        return $this->hasMany('exams', 'id', 'questions', 'exam_id', 'Question');
+    }
 }

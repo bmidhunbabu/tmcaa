@@ -25,7 +25,6 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?php echo SITE_URL; ?>/course">All Courses</a>
                     <a class="dropdown-item" href="<?php echo SITE_URL; ?>/course/create.php">New Course</a>
-                    <a class="dropdown-item" href="<?php echo SITE_URL; ?>/course/allocate-subject.php">Subject Allocation</a>
                 </div>
             </li>
         <?php endif; ?>
@@ -70,18 +69,18 @@
                 <?php endif; ?>
             </div>
         </li>
-        <?php */ ?>
         <?php if (Auth::is_logged_in() && User::is_admin()) : ?>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span class="fa icon-users"></span>Subjects
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?php echo SITE_URL; ?>/subject">All Subjects</a>
-                    <a class="dropdown-item" href="<?php echo SITE_URL; ?>/subject/create.php">New Subject</a>
-                </div>
-            </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <span class="fa icon-users"></span>Subjects
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="<?php echo SITE_URL; ?>/subject">All Subjects</a>
+                <a class="dropdown-item" href="<?php echo SITE_URL; ?>/subject/create.php">New Subject</a>
+            </div>
+        </li>
         <?php endif; ?>
+        <?php */ ?>
         <?php if (Auth::is_logged_in() && User::is_staff()) : ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">

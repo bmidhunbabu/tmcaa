@@ -52,7 +52,9 @@ class Model
         $result = $mysqli->query($sql);
         if ($result) {
             return $mysqli->insert_id;
-        }
+        } /* else {
+            echo $mysqli->error;
+        } */
         return false;
     }
 

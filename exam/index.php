@@ -62,7 +62,10 @@ User::is_admin() or die('Unauthorized Access');
                                 </td>
                                 <?php */ ?>
                                         <td>
-                                            <a href="<?php echo SITE_URL; ?>/question/create.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">Edit</a>
+                                            <a href="<?php echo SITE_URL; ?>/question/index.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">View Questions</a>
+                                        </td>
+                                        <td>
+                                            <a href="<?php echo SITE_URL; ?>/question/create.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">Add Questions</a>
                                         </td>
                                         <td>
                                             <form method="POST">
