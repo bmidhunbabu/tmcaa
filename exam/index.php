@@ -50,19 +50,19 @@ User::is_admin() or die('Unauthorized Access');
                                     <th>Course</th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 <?php foreach ($result as $exam) : ?>
                                     <tr>
                                         <td><?php echo $exam->name; ?></td>
                                         <td><?php echo $exam->startDate(); ?> To <?php echo $exam->endDate(); ?></td>
                                         <td><?php echo $exam->course()->name; ?></td>
-                                        <?php /* ?>
-                                <td>
-                                    <a href="<?php echo SITE_URL; ?>/exam/update.php?exam_id=<?php echo $exam['id']; ?>" class="btn btn-sm btn-success">Edit</a>
-                                </td>
-                                <?php */ ?>
                                         <td>
-                                            <a href="<?php echo SITE_URL; ?>/question/index.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">View Questions</a>
+                                            <a href="<?php echo SITE_URL; ?>/exam/update.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a href="<?php echo SITE_URL; ?>/question/index.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">View</a>
                                         </td>
                                         <td>
                                             <a href="<?php echo SITE_URL; ?>/question/create.php?exam_id=<?php echo $exam->id; ?>" class="btn btn-sm btn-success">Add Questions</a>
