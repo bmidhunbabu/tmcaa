@@ -11,6 +11,11 @@ function alert($message, $type)
     echo '</div>';
 }
 
+function input($key, $value = '')
+{
+    return isset($_REQUEST[$key]) ? $_REQUEST[$key] : $value;
+}
+
 function upload($file, $target_dir, $prefix = '')
 {
     $count = 2;

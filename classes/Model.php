@@ -9,7 +9,7 @@ class Model
         global $mysqli;
         $class = get_called_class();
         $table = $class::$table;
-        $sql = "select * from $table where $key = '$value'";
+        $sql = "select * from $table where $key = '" . $mysqli->real_escape_string($value) . "'";
         $result = $mysqli->query($sql);
         if ($result->num_rows) {
             return true;
@@ -22,6 +22,7 @@ class Model
         global $mysqli;
         $arr = [];
         foreach ($fields as $key => $value) {
+            $value = $mysqli->real_escape_string($value);
             $arr[] = "$key = '$value'";
         }
         $where = implode(' and ', $arr);
@@ -35,13 +36,24 @@ class Model
         return false;
     }
 
+    /**
+     * Insert
+     *
+     * @param array $fields fields to insert
+     * @return int id of created record 
+     */
     public static function create(array $fields)
     {
         global $mysqli;
         $keys = $values = '';
         foreach ($fields as $key => $value) {
+            $value = $mysqli->real_escape_string($value);
             $keys .= "$key,";
-            $values .= "'$value',";
+            if ($key == 'password') {
+                $values .= "'" . md5($value) . "',";
+            } else {
+                $values .= "'$value',";
+            }
         }
         $created_at = date("Y-m-d H:i:s");
         $keys .= "updated_at,created_at";
@@ -52,9 +64,10 @@ class Model
         $result = $mysqli->query($sql);
         if ($result) {
             return $mysqli->insert_id;
-        } /* else {
-            echo $mysqli->error;
-        } */
+        } else {
+            //echo $sql;
+            // echo $mysqli->error;
+        }
         return false;
     }
 
@@ -64,7 +77,12 @@ class Model
         $updates = '';
         $updated_at = date("Y-m-d H:i:s");
         foreach ($fields as $key => $value) {
-            $updates .= "$key = '$value',";
+            $value = $mysqli->real_escape_string($value);
+            if ($key == 'password') {
+                $updates .= "$key = '" . md5($value) . "',";
+            } else {
+                $updates .= "$key = '$value',";
+            }
         }
         $updates .= "updated_at = '$updated_at'";
         $class = get_called_class();
@@ -73,6 +91,8 @@ class Model
         $result = $mysqli->query($sql);
         if ($result) {
             return true;
+        } else {
+            echo $mysqli->error;
         }
         return false;
     }
@@ -111,7 +131,6 @@ class Model
         global $mysqli;
         $id = $this->attributes['id'];
         $sql = "select p.* from $foreign_table f inner join $primary_table p on f.$foreign_key = p.$primary_key where f.id = '$id'";
-        // echo $sql;
         $result = $mysqli->query($sql);
         if ($result->num_rows) {
             $row = $result->fetch_assoc();
@@ -243,5 +262,14 @@ class Model
     public function __get($name)
     {
         return isset($this->attributes[$name]) ? $this->attributes[$name] : null;
+    }
+
+    public function created_at()
+    {
+        if (isset($this->attributes['created_at'])) {
+            $date = new DateTime($this->attributes['created_at']);
+            return $date->format('M d, Y');
+        }
+        return null;
     }
 }
