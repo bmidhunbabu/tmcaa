@@ -75,9 +75,10 @@ Auth::is_logged_in() or header('Location:' . SITE_URL);
                                                 } else if ($_FILES["photo"]["size"] > 2097152) {
                                                     alert('Maximum file size is 2MB', 'danger');
                                                 } else {
-                                                    $thumbnail_name = upload($_FILES["photo"], APP_PATH . '/storage/questions/', 'ques-');
+                                                    $image_base64 = base64_encode(file_get_contents($_FILES['photo']['tmp_name']));
+                                                    $image = 'data:image/' . $ext . ';base64,' . $image_base64;
+                                                    $data['photo'] = $image;
                                                 }
-                                                $data['photo'] = $thumbnail_name;
                                             }
                                             $data['question'] = $_POST['question'];
                                             $data['answers'] = $answers;
@@ -113,7 +114,7 @@ Auth::is_logged_in() or header('Location:' . SITE_URL);
                                     </div>
                                     <div class="form-group">
                                         <label for="photo">Photo</label>
-                                        <div id="preview_photo" class="preview-box" style="background-image:url('<?php echo SITE_URL . '/storage/questions/' . $question->photo; ?>');">
+                                        <div id="preview_photo" class="preview-box" style="background-image:url('<?php echo $question->photo; ?>');">
                                             <label for="photo" id="label_photo" class="file-input-label">
                                                 <i class="fa fa-image"></i> Select Image
                                             </label>

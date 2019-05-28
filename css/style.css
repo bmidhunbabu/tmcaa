@@ -232,6 +232,8 @@ textarea.form-control {
   background-color: #ecf0f5;
   color: #ecf0f1;
   border: 2px solid #ccc;
+  background-position: center center;
+  background-size: cover;
 }
 
 .preview-box .file-input-label {

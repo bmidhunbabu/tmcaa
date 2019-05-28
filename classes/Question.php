@@ -10,6 +10,7 @@ class Question extends Model
         $question = array(
             'question' => $data['question'],
             'description' => $data['description'],
+            'exam_id' => $data['exam_id'],
         );
         if (isset($data['photo'])) {
             $question['photo'] = $data['photo'];
