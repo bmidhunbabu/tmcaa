@@ -93,7 +93,7 @@ Auth::is_logged_in() or header('Location:' . SITE_URL);
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Correct Answer</label>
-                                    <input type="tet" class="form-control" name="correct_answer" value="<?php echo isset($_POST['correct_answer']) ? $_POST['correct_answer'] : ''; ?>" required />
+                                    <input type="text" class="form-control" name="correct_answer" value="<?php echo isset($_POST['correct_answer']) ? $_POST['correct_answer'] : ''; ?>" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="Description">Description to the Answer</label>

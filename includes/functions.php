@@ -18,6 +18,9 @@ function input($key, $value = '')
 
 function upload($file, $target_dir, $prefix = '')
 {
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir);
+    }
     $count = 2;
     $ext = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
     $name = $prefix . date('Ymd') . time();
