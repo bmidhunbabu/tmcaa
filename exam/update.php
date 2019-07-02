@@ -45,7 +45,7 @@
                                             } else {
                                                 $result = Exam::update($_POST, $_GET['exam_id']);
                                                 if ($result == 1) {
-                                                    alert('Exam Created Successfully', 'success');
+                                                    alert('Exam Updated Successfully', 'success');
                                                 }
                                             }
                                         }
@@ -84,7 +84,11 @@
                                             <label class="control-label">End Date</label>
                                             <input type="date" class="form-control" placeholder="Exam End Date" name="end_date" value="<?php echo input('end_date', $exam->end_date); ?>" required />
                                         </div>
-                                        <input type="submit" class="btn" value="Create" name="create" />
+                                        <div class="form-group">
+                                            <label class="control-label">Duration of the Exam</label>
+                                            <input type="number" name="duration" placeholder="Duration in Minutes" class="form-control" min="1" value="<?php echo input('duration', $exam->duration); ?>" required>
+                                        </div>
+                                        <input type="submit" class="btn" value="Update" name="create" />
                                     </form>
                                 <?php endif; ?>
                             <?php endif; ?>

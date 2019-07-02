@@ -15,4 +15,16 @@ class Role extends Model
         }
         return false;
     }
+
+    public static function getId($name)
+    {
+        global $mysqli;
+        $sql = "select * from roles where name = '$name'";
+        $result = $mysqli->query($sql);
+        if ($result->num_rows) {
+            $role = $result->fetch_assoc();
+            return $role['id'];
+        }
+        return false;
+    }
 }

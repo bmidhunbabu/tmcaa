@@ -86,6 +86,10 @@ Auth::is_logged_in() or header('Location:' . SITE_URL);
                                     <label class="control-label">End Date</label>
                                     <input type="date" class="form-control" placeholder="Exam End Date" name="end_date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>" required />
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label">Duration of the Exam</label>
+                                    <input type="number" name="duration" placeholder="Duration in Minutes" class="form-control" min="1" value="<?php echo isset($_POST['duration']) ? $_POST['duration'] : ''; ?>" required>
+                                </div>
                                 <input type="submit" class="btn" value="Create" name="create" />
                             </form>
                         </div>

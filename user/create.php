@@ -55,7 +55,7 @@ User::is_admin() or die('Unauthorized Access');
                                     $user_id = User::create(array(
                                         'username' => $_POST['username'],
                                         'email' => $_POST['email'],
-                                        'password' => $_POST['password'],
+                                        'password' => md5($_POST['password']),
                                         'name' => $_POST['name'],
                                         'phone' => $_POST['phone'],
                                         'role_id' => $_POST['role_id'],

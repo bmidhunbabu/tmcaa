@@ -1,0 +1,60 @@
+[
+  {
+    "name": "physcics-model",
+    "category": "physics",
+    "end_date": "1564627661",
+    "max_sec": "3600",
+    "left_sec": "0",
+    "server_pid": "1",
+    "correct": "3",
+    "worng": "1",
+    "question": [
+      {
+        "qs": "charge of electron",
+        "answer": "johnson found voltage of electron",
+        "server_qid": "1",
+        "option": [
+          {
+            "msg": "1.7 V",
+            "correct": "1"
+          },
+          {
+            "msg": "8 v",
+            "correct": "0"
+          },
+          {
+            "msg": ".7 V",
+            "correct": "0"
+          },
+          {
+            "msg": "2 v",
+            "correct": "0"
+          }
+        ]
+      },
+      {
+        "qs": "whats speed of light",
+        "answer": "found by electron microscope",
+        "server_qid": "1",
+        "option": [
+          {
+            "msg": "3 km/sec",
+            "correct": "1"
+          },
+          {
+            "msg": "4 km/sec",
+            "correct": "0"
+          },
+          {
+            "msg": "2 km/sec",
+            "correct": "0"
+          },
+          {
+            "msg": "1 km/sec",
+            "correct": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
