@@ -52,10 +52,12 @@ User::is_admin() or die('Unauthorized Access');
                                     alert('Username Already Exists', 'danger');
                                 } else {
                                     unset($_POST['register']);
+                                    $password = str_replace('-', '', $_POST['roll_no'])
+                                        . str_replace('-', '', $_POST['phone']);
                                     $user_id = User::create(array(
                                         'username' => $_POST['username'],
                                         'email' => $_POST['email'],
-                                        'password' => md5($_POST['password']),
+                                        'password' => $password,
                                         'name' => $_POST['name'],
                                         'phone' => $_POST['phone'],
                                         'role_id' => $_POST['role_id'],

@@ -90,6 +90,7 @@ Auth::is_logged_in() or header('Location:' . SITE_URL);
                                     <label class="control-label">Duration of the Exam</label>
                                     <input type="number" name="duration" placeholder="Duration in Minutes" class="form-control" min="1" value="<?php echo isset($_POST['duration']) ? $_POST['duration'] : ''; ?>" required>
                                 </div>
+                                <input type="hidden" name="status" value="1" />
                                 <input type="submit" class="btn" value="Create" name="create" />
                             </form>
                         </div>

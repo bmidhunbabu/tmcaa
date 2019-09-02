@@ -33,24 +33,24 @@
                             <?php if (isset($_GET['exam_id'])) : $exam = Exam::find($_GET['exam_id']);  ?>
                                 <?php if ($exam) : ?>
                                     <?php
-                                    if (isset($_POST['create'])) {
-                                        if (!ctype_digit($_POST['correct_mark'])) {
-                                            alert('Correct Mark must be a number', 'danger');
-                                        } else if (!ctype_digit($_POST['incorrect_mark'])) {
-                                            alert('-ve Mark must be a number', 'danger');
-                                        } else {
-                                            unset($_POST['create']);
-                                            if (Exam::existsWith($_POST)) {
-                                                alert('No changes found', 'danger');
-                                            } else {
-                                                $result = Exam::update($_POST, $_GET['exam_id']);
-                                                if ($result == 1) {
-                                                    alert('Exam Updated Successfully', 'success');
+                                            if (isset($_POST['create'])) {
+                                                if (!ctype_digit($_POST['correct_mark'])) {
+                                                    alert('Correct Mark must be a number', 'danger');
+                                                } else if (!ctype_digit($_POST['incorrect_mark'])) {
+                                                    alert('-ve Mark must be a number', 'danger');
+                                                } else {
+                                                    unset($_POST['create']);
+                                                    if (Exam::existsWith($_POST)) {
+                                                        alert('No changes found', 'danger');
+                                                    } else {
+                                                        $result = Exam::update($_POST, $_GET['exam_id']);
+                                                        if ($result == 1) {
+                                                            alert('Exam Updated Successfully', 'success');
+                                                        }
+                                                    }
                                                 }
                                             }
-                                        }
-                                    }
-                                    ?>
+                                            ?>
                                     <form method="POST">
                                         <div class="form-group">
                                             <label class="control-label">Exam Name</label>
@@ -87,6 +87,13 @@
                                         <div class="form-group">
                                             <label class="control-label">Duration of the Exam</label>
                                             <input type="number" name="duration" placeholder="Duration in Minutes" class="form-control" min="1" value="<?php echo input('duration', $exam->duration); ?>" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Status of the Exam</label>
+                                            <select name="status" class="form-control">
+                                                <option value="1" <?php echo input('status', $exam->status) == 1 ? 'selected' : ''; ?>>Published</option>
+                                                <option value="0" <?php echo input('status', $exam->status) == 0 ? 'selected' : ''; ?>>Suspended</option>
+                                            </select>
                                         </div>
                                         <input type="submit" class="btn" value="Update" name="create" />
                                     </form>

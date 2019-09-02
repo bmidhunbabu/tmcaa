@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header('Content-Type: application/json');
+
 require_once '../includes/config.php';
 
 $id = Role::getId('student');
@@ -10,16 +13,24 @@ if (User::existsWith([
     'role_id' => $id,
 ])) {
     $exams = Exam::get([
-        "id > '" . $_GET['last_server_pid'] . "'"
+        "id > '" . $_GET['last_server_pid'] . "'",
+        "start_date <= '" . date('Y-m-d') . "'",
+        "status = '1'",
     ]);
+
     if ($exams) {
         $result = [];
         foreach ($exams as $exam) {
             $data = $exam->attributes;
+            $data['course_name'] = $exam->course()->name;
             if ($exam->questions()) {
                 $questions = $exam->questions();
                 foreach ($questions as $question) {
-                    $data['questions'][] = $question->attributes;
+                    $qs = $question->attributes;
+                    foreach ($question->answers() as $answer) {
+                        $qs['options'][] = $answer->attributes;
+                    }
+                    $data['questions'][] = $qs;
                 }
             }
             $result[] = $data;

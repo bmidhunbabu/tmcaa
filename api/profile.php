@@ -12,7 +12,12 @@ if (User::existsWith([
     'password' => md5($_POST['pword']),
     'role_id' => $id,
 ])) {
-    echo 'success';
+    $user = User::get([
+        'phone' => $_POST['uname'],
+        'password' => md5($_POST['pword']),
+        'role_id' => $id,
+    ]);
+    return $user->name;
 } else {
     echo 'invalid login credentials';
 }
