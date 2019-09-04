@@ -15,6 +15,7 @@ if (User::existsWith([
     $exams = Exam::get([
         "id > '" . $_GET['last_server_pid'] . "'",
         "start_date <= '" . date('Y-m-d') . "'",
+        "end_date >= '" . date('Y-m-d') . "'",
         "status = '1'",
     ]);
 
